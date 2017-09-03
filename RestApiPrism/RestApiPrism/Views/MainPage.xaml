@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RestApiPrism.Views.MainPage"
+             Title="MainPage"
+             Padding="20">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Add"
+                    BackgroundColor="#C3B091"
+                    Command="{Binding AddCommand}" />
+            <Button Text="Update"
+                    BackgroundColor="Silver"
+                    HorizontalOptions="CenterAndExpand"
+                    Command="{Binding UpdateCommand}" />
+            <Button Text="Delete"
+                    BackgroundColor="#dc143c"
+                    Command="{Binding DeleteCommand}" />
+        </StackLayout>
+        <ListView ItemsSource="{Binding Posts}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
